@@ -298,13 +298,14 @@ fun TimeCalculator(vm: ShiftViewModel = viewModel()) {
 
                 timeLeftHours != null -> {
 
+                    val timeLeftText = if (timeLeftHours < 1.0) {
+                        "${(timeLeftHours * 60).toInt()} mts"
+                    } else {
+                        "${String.format("%.2f", timeLeftHours)} hrs"
+                    }
+
                     Text(
-                        "Time Left: ${
-                            String.format(
-                                "%.2f",
-                                timeLeftHours
-                            )
-                        } hours",
+                        "Time Left: $timeLeftText",
                         fontSize = 20.sp
                     )
                 }
